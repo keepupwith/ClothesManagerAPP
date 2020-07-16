@@ -6,13 +6,17 @@ import store from './store'
 import App from './App.vue'
 import MainComponent from "./components/MainComponent/MainComponent.vue"
 import Storage from "./components/Storage/Storage.vue"
+import History from "./components/History/History.vue"
+import Settings from "./components/Settings/Settings.vue"
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
 const routes=[
     {path:'/',component:MainComponent},
-    {path:'/Storage',component:Storage}
+    {path:'/Storage',component:Storage},
+    {path:'/History',component:History},
+    {path:'/Settings',component:Settings}
 ]
 const router = new VueRouter({
     routes
