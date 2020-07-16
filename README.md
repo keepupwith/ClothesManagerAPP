@@ -1,24 +1,7 @@
-# hello-world
+# ClothesManagerAPP
 
-## Project setup
-```
-yarn install
-```
+衣物管家，帮助人们管理衣物的好帮手，Android APP。Vue+Capacitor
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+郑州大学 南校区 2017级 通信工程  大三 工程设计课程7组 答辩作品。
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 开发中
