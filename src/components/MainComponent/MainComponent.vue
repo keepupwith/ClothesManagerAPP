@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import "./css/MainComponent.scss"
 export default {
     name:'MainComponent',
     data(){
