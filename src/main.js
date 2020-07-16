@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 
 import store from './store'
 import App from './App.vue'
-import MainComponent from "./components/MainComponent.vue"
+import MainComponent from "./components/MainComponent/MainComponent.vue"
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
