@@ -5,14 +5,18 @@ import Vuex from 'vuex'
 import store from './store'
 import App from './App.vue'
 import MainComponent from "./components/MainComponent/MainComponent.vue"
+import Storage from "./components/Storage/Storage.vue"
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
-const router=[
+const routes=[
     {path:'/',component:MainComponent},
+    {path:'/Storage',component:Storage}
 ]
-
+const router = new VueRouter({
+    routes
+  })
 new Vue({
     router,
     store,

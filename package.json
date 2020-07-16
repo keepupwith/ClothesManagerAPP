@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "clothes-manager",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -41,7 +41,8 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "no-unused-vars": 0
+      "no-unused-vars": 0,
+      "vue/no-unused-components":0
     }
   },
   "browserslist": [

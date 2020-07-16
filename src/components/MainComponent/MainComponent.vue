@@ -1,6 +1,6 @@
 <template>
-    <div>
-        
+    <div id='main-component'>
+        主界面
     </div>
 </template>
 
