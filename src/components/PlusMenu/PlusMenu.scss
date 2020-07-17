@@ -6,6 +6,8 @@
     display: flex;
     width: 30vw;
     flex-direction: column;
+    box-shadow: 0 0 10px 0.1px rgb(184, 184, 184);
+    border-radius: 8px;
     .submenu{
         height: 5vh;
         display: flex;
