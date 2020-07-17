@@ -885,6 +885,11 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@ionic/pwa-elements@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/@ionic/pwa-elements/download/@ionic/pwa-elements-3.0.0.tgz#ae114d5d17d9618eb7eb793a2ea86cdb7607e2a7"
+  integrity sha1-rhFNXRfZYY6363k6Lqhs23YH4qc=
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/@mrmlnc/readdir-enhanced/download/@mrmlnc/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

@@ -6,7 +6,7 @@
             @click-right="changePlusmenuStatus"
         />
         <transition name="fade">
-        <PlusMenu v-show='plusMenuShow' @submenuClicked='changePlusmenuStatus'/>
+        <PlusMenu v-if='plusMenuShow' @submenuClicked='changePlusmenuStatus'/>
         </transition>
         <div id="content-view">
             <router-view></router-view>

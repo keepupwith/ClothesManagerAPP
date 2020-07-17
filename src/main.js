@@ -8,6 +8,8 @@ import MainComponent from "./components/MainComponent/MainComponent.vue"
 import Storage from "./components/Storage/Storage.vue"
 import History from "./components/History/History.vue"
 import Settings from "./components/Settings/Settings.vue"
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+defineCustomElements(window)
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)

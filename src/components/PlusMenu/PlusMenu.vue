@@ -9,16 +9,23 @@
 
 <script>
 import './PlusMenu.scss'
+import takePhoto from "../../Utils/takePhoto"
 export default {
     name:'PlusMenu',
     data(){
         return {
-
+            
         }
     },
+    mounted(){
+        document.addEventListener('mousedown',this.hidePlusMenu);
+    },
+    beforeDestroy(){
+        document.removeEventListener('mousedown',this.hidePlusMenu);
+    }
+    ,
     methods:{
         submenuClicked(id){
-            this.$emit('submenuClicked');
             switch(id){
                 case(0):
                     this.takePhoto();
@@ -26,11 +33,15 @@ export default {
                 
 
             }
+            this.hidePlusMenu()
         },
-        takePhoto(){
-            console.log('take photo');
+        async takePhoto(){
+            let base64=await takePhoto();
+            console.log(base64);
         },
-
+        hidePlusMenu(){
+            this.$emit('submenuClicked');
+        }
     }
 }
 </script>
