@@ -1,0 +1,33 @@
+#plus-menu{
+    background-color: whitesmoke;
+    position: absolute;
+    right:3vw;
+    margin-top: 10px;
+    display: flex;
+    width: 30vw;
+    flex-direction: column;
+    .submenu{
+        height: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:active{
+            background-color: white;
+        }
+        
+    }
+    &::before{
+        content: "";
+        display: block;
+        border: 5px solid whitesmoke;
+        border-top: 5px solid rgba($color: #000000, $alpha: 0);
+        border-left: 5px solid rgba($color: #000000, $alpha: 0);
+        border-right: 5px solid rgba($color: #000000, $alpha: 0);
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        left:25vw;
+        top: -10px;
+    }
+   
+}
