@@ -5,3 +5,7 @@
 郑州大学 南校区 2017级 通信工程  大三 工程设计课程7组 答辩作品。
 
 ## 开发中
+
+## 截图
+
+![screenshot](./screenshots/screenShot.png)
