@@ -63,11 +63,11 @@ class ClothesStorageHandle {
 
 }
 class Cloth{
-    constructor(clothClass,clothSize,lastWash,suitTemp,suitWeather,image){
+    constructor(clothClass,clothSize,lastWash,suitTemp,suitWeather,imageBase64){
         this.dataPath="data";
         this.clothDataFileName="clothesData.json";
         this.clothImageFileName="clothesImage.json";
-        this.imageBase64=image.base64String;
+        this.imageBase64=imageBase64;
         this.saveImageBase64=this.saveImageBase64.bind(this);
         this.clothProps={
             clothClass:clothClass,

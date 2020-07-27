@@ -15,10 +15,10 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(Vuex)
 const routes=[
-    {path:'/',component:MainComponent},
     {path:'/Storage',component:Storage},
     {path:'/History',component:History},
-    {path:'/Settings',component:Settings}
+    {path:'/Settings',component:Settings},
+    {path:'/',component:MainComponent}
 ]
 const router = new VueRouter({
     routes

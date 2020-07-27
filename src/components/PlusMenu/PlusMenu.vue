@@ -4,14 +4,21 @@
     <div class="submenu" @click="()=>submenuClicked(1)">拍照</div>
     <div class="submenu" @click="()=>submenuClicked(2)">拍照</div>
     <div class="submenu" @click="()=>submenuClicked(3)">拍照</div>
+  
 </div>
 </template>
 
 <script>
 import './PlusMenu.scss'
 import takePhoto from "../../Utils/takePhoto"
+import {Cloth,ClothesStorageHandle} from "../../Utils/clothesStorage"
+import { Popup } from 'vant';
+import Vue from 'vue';
+Vue.use(Popup);
+
 export default {
     name:'PlusMenu',
+    props:['changeAddClothPopupShow'],
     data(){
         return {
             
@@ -29,7 +36,7 @@ export default {
             switch(id){
                 case(0):
                     this.takePhoto();
-                    break;
+                    // this.$store.state.clothesStorageHandle.
                 
 
             }
@@ -37,11 +44,13 @@ export default {
         },
         async takePhoto(){
             let base64=await takePhoto();
-            console.log(base64);
+            this.changeAddClothPopupShow(base64);
+
         },
         hidePlusMenu(){
             this.$emit('submenuClicked');
-        }
+        },
+        
     }
 }
 </script>

@@ -1,12 +1,12 @@
 <template>
     <div id="app">
-        <van-nav-bar
-            :title="title"
-            right-text="按钮"
-            @click-right="changePlusmenuStatus"
-        />
+        <van-nav-bar :title="title" right-text="按钮" @click-right="changePlusmenuStatus" />
         <transition name="fade">
-        <PlusMenu v-if='plusMenuShow' @submenuClicked='changePlusmenuStatus'/>
+            <PlusMenu
+                v-if="plusMenuShow"
+                :changeAddClothPopupShow="changeAddClothPopupShow"
+                @submenuClicked="changePlusmenuStatus"
+            />
         </transition>
         <div id="content-view">
             <router-view></router-view>
@@ -19,6 +19,25 @@
                 <van-tabbar-item icon="setting-o">设置</van-tabbar-item>
             </van-tabbar>
         </div>
+
+        <van-popup
+            v-model="addClothPopupShow"
+            closeable
+            round
+            position="bottom"
+            :style="{ height: '60%' }"
+        >
+        <div id="cloth-class">
+            <span>分类</span>
+            <van-radio-group v-model="newClothOProps.clothClass">
+                <van-radio name="上装" shape="square">上装</van-radio>
+                <van-radio name="下装" shape="square">下装</van-radio>
+                <van-radio name="鞋子" shape="square">鞋子</van-radio>
+            </van-radio-group>
+        </div>
+        <hr>
+            
+        </van-popup>
     </div>
 </template>
 
@@ -30,15 +49,19 @@ import MainComponent from "./components/MainComponent/MainComponent";
 import Storage from "./components/Storage/Storage";
 import History from "./components/History/History.vue";
 import Settings from "./components/Settings/Settings.vue";
-import PlusMenu from "./components/PlusMenu/PlusMenu"
+import PlusMenu from "./components/PlusMenu/PlusMenu";
 import "./App.scss";
 import "vant/lib/index.css";
 import { NavBar } from "vant";
 
+import { Cloth, ClothesStorageHandle } from "./Utils/clothesStorage";
+import { RadioGroup, Radio } from "vant";
 Vue.use(NavBar);
 Vue.use(VueRouter);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
+Vue.use(Radio);
+Vue.use(RadioGroup);
 export default {
     name: "App",
     components: {
@@ -47,21 +70,33 @@ export default {
         History,
         Settings,
         NavBar,
-        PlusMenu
+        PlusMenu,
     },
     data() {
         return {
             active: 0,
-            plusMenuShow:true
+            plusMenuShow: true,
+            addClothPopupShow: true,
+            newClothOProps: {
+                clothClass: null,
+                clothSize: null,
+                lastWash: null,
+                suitTemp: null,
+                suitWeather: null,
+                imageBase64: null,
+            },
         };
     },
     methods: {
-        changePlusmenuStatus(){
-            this.plusMenuShow=!this.plusMenuShow;
-        }
+        changePlusmenuStatus() {
+            this.plusMenuShow = !this.plusMenuShow;
+        },
+        changeAddClothPopupShow(base64) {
+            this.addClothPopupShow = !this.addClothPopupShow;
+        },
     },
-    computed:{
-        title(){
+    computed: {
+        title() {
             switch (this.active) {
                 case 0:
                     return "今日";
@@ -74,7 +109,7 @@ export default {
                 default:
                     return "error";
             }
-        }
+        },
     },
     watch: {
         active(newVal, oldVal) {
@@ -92,8 +127,8 @@ export default {
                     this.$router.push("/Settings");
                     break;
             }
-        }
-    }
+        },
+    },
 };
 </script>
 
