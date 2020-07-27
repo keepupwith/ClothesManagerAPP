@@ -1,9 +1,9 @@
 <template>
 <div id='plus-menu'>
-    <div class="submenu" @click="()=>submenuClicked(0)">拍照</div>
-    <div class="submenu" @click="()=>submenuClicked(1)">拍照</div>
-    <div class="submenu" @click="()=>submenuClicked(2)">拍照</div>
-    <div class="submenu" @click="()=>submenuClicked(3)">拍照</div>
+    <div class="submenu" @click="(e)=>submenuClicked(0)">拍照</div>
+    <div class="submenu" @click="(e)=>submenuClicked(1)">拍照</div>
+    <div class="submenu" @click="(e)=>submenuClicked(2)">拍照</div>
+    <div class="submenu" @click="(e)=>submenuClicked(3)">拍照</div>
   
 </div>
 </template>
@@ -33,6 +33,7 @@ export default {
     ,
     methods:{
         submenuClicked(id){
+
             switch(id){
                 case(0):
                     this.takePhoto();
@@ -47,8 +48,8 @@ export default {
             this.changeAddClothPopupShow(base64);
 
         },
-        hidePlusMenu(){
-            this.$emit('submenuClicked');
+        hidePlusMenu(e){
+            this.$emit('hidePlusMenu',e);
         },
         
     }

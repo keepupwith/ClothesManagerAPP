@@ -63,7 +63,7 @@ class ClothesStorageHandle {
 
 }
 class Cloth{
-    constructor(clothClass,clothSize,lastWash,suitTemp,suitWeather,imageBase64){
+    constructor(clothClass,clothSize,lastWash,suitTemp,suitWeather,suitSituation,imageBase64){
         this.dataPath="data";
         this.clothDataFileName="clothesData.json";
         this.clothImageFileName="clothesImage.json";
@@ -75,6 +75,7 @@ class Cloth{
             lastWash:lastWash,
             suitTemp:suitTemp,
             suitWeather:suitWeather,
+            suitSituation:suitSituation,
             clothID:new Date().getTime()
         };
     }
