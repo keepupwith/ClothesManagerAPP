@@ -184,7 +184,8 @@ export default {
                     this.clickClothProps.suitTemp,
                     this.clickClothProps.suitWeather,
                     this.clickClothProps.suitSituation,
-                    await this.clothesStorageHandle.getClothBase64(this.clickClothProps.clothID)
+                    await this.clothesStorageHandle.getClothBase64(this.clickClothProps.clothID),
+                    this.clickClothProps.clothID
                 );
                 let timer = setTimeout(() => {
                     Toast.fail("读写数据超时");

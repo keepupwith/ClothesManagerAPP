@@ -21,7 +21,8 @@ const routes=[
     {path:'/',component:MainComponent}
 ]
 const router = new VueRouter({
-    routes
+    routes,
+    mode:'abstract'
   })
 new Vue({
     router,
