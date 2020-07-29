@@ -9,4 +9,29 @@
         margin: 0.5rem;
         border-radius: 5px;
     }
+    #cloth-props{
+        margin-top: 0.5rem;
+        #color{
+            display: flex;
+            align-items: center;
+            #color-block{
+                display: inline-block;
+                width: 1rem;
+                height: 1rem;
+                background-color: white;
+                border: 1px solid gray;
+                border-radius: 0.3rem;
+            }
+        }
+        .prop{
+            margin: 0.1rem;
+            span{
+                margin-right: 0.2rem;
+            }
+            span:nth-of-type(1){
+                font-weight: 800;
+                color: rgb(65, 64, 64);
+            }
+        }
+    }
 }

@@ -1,6 +1,7 @@
 <template>
     <div id="app">
-        <van-nav-bar :title="title" right-text="按钮" @click-right="changePlusmenuStatus" />
+        <!-- <van-nav-bar fixed :title="title" right-text="按钮" @click-right="changePlusmenuStatus" /> -->
+    <NavBarTop :title="title" :rightButtonClickHandle="changePlusmenuStatus"></NavBarTop>
         <transition name="fade">
             <PlusMenu
                 v-if="plusMenuShow"
@@ -12,14 +13,16 @@
         <div id="content-view">
             <router-view></router-view>
         </div>
-        <div id="bottomButtons">
-            <van-tabbar v-model="active">
+
+
+            <!-- <van-tabbar v-model="active">
                 <van-tabbar-item icon="home-o">今日</van-tabbar-item>
                 <van-tabbar-item icon="search">库存</van-tabbar-item>
                 <van-tabbar-item icon="friends-o">历史</van-tabbar-item>
                 <van-tabbar-item icon="setting-o">设置</van-tabbar-item>
-            </van-tabbar>
-        </div>
+            </van-tabbar> -->
+            <NavBarBottom v-model="active"/>
+
 
         <van-popup v-model="addClothPopupShow" round position="bottom" :style="{ height: '85%' }">
             <div id="cloth-props-popup-window">
@@ -115,7 +118,8 @@ Vue.use(Stepper);
 import { Cloth, ClothesStorageHandle } from "./Utils/clothesStorage";
 import { RadioGroup, Radio } from "vant";
 import { Checkbox, CheckboxGroup } from "vant";
-
+import NavBarTop from "./components/NavBar/NavBarTop"
+import NavBarBottom from "./components/NavBar/NavBarBottom"
 Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
 Vue.use(NavBar);
@@ -133,16 +137,18 @@ export default {
         Settings,
         NavBar,
         PlusMenu,
+        NavBarTop,
+        NavBarBottom
     },
     data() {
         return {
             active: 0,
-            plusMenuShow: true,
+            plusMenuShow: false,
             addClothPopupShow: false,
             newClothProps: {
                 clothClass: null,
                 clothSize: null,
-                color: null,
+                color: "#FFFFFF",
                 lastWash: null,
                 suitTemp: 26,
                 suitWeather: [],
@@ -192,7 +198,7 @@ export default {
                 this.newClothProps.clothClass,
                 this.newClothProps.clothSize,
                 this.newClothProps.color,
-                this.newClothProps.lastWash,
+                new Date().getTime()-(this.newClothProps.lastWash*(24*60*60*1000)),
                 this.newClothProps.suitTemp,
                 this.newClothProps.suitWeather,
                 this.newClothProps.suitSituation,
@@ -218,16 +224,18 @@ export default {
             Toast.success("添加成功");
             this.submitButtonLoading = false;
             this.addClothPopupShow = false;
-            this.newClothProps = {
+            this.newClothProps= {
                 clothClass: null,
                 clothSize: null,
-                color: null,
+                color: "#FFFFFF",
                 lastWash: null,
                 suitTemp: 26,
                 suitWeather: [],
                 suitSituation: [],
                 imageBase64: null,
             };
+            console.log("start");
+            this.$store.dispatch('flashClothStorage');
         },
     },
     computed: {

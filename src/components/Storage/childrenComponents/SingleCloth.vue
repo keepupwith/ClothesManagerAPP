@@ -4,6 +4,37 @@
         id="cloth-image" 
         :style="{boxShadow:'0 0 5px 0.1px '+clothObject.color}"
         :src="'data:text/html;base64,'+this.imageBase64" alt="IMG"/>
+
+        <div id="cloth-props">
+            <div id="ccloth-class" class="prop">
+                <span id="name">分类:</span>
+                <span id="prop" v-text="clothObject.clothClass"></span>
+            </div>
+            <div id="cloth-size"  class="prop">
+                <span id="name">尺寸:</span>
+                <span id="prop" v-text="clothObject.clothSize"></span>
+            </div>
+            <div id="color"  class="prop">
+                <span id="name">颜色:</span>
+                <div id="color-block" :style="{backgroundColor:clothObject.color}"/>
+            </div>
+            <!-- <div id="suit-weather"  class="prop">
+                <span id="name">适用天气:</span>
+                <span id="prop" v-text="clothObject.suitWeather"></span>
+            </div> -->
+            <div id="suit-temp"  class="prop">
+                <span id="name">适用温度:</span>
+                <span id="prop" v-text="clothObject.suitTemp+' ℃'"></span>
+            </div>
+            <!-- <div id="suit-situation"  class="prop">
+                <span id="name">适用场合:</span>
+                <span id="prop" v-text="clothObject.suitSituation"></span>
+            </div> -->
+            <div id="lastwash"  class="prop">
+                <span id="name">上次洗涤距今:</span>
+                <span id="prop" v-text="Math.floor((new Date().getTime()-clothObject.lastWash)/(24*60*60*1000))+' 天'"></span>
+            </div>
+        </div>
     </div>
 </template>
 

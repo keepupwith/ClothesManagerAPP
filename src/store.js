@@ -7,7 +7,8 @@ import {Cloth,ClothesStorageHandle} from "./Utils/clothesStorage"
 const store = new Vuex.Store({
   state: {
       clothesStorageHandle:new ClothesStorageHandle(),
-      clothesObjectList:[]
+      clothesObjectList:[],
+      dirty:false
   },
   mutations: {
       
@@ -15,9 +16,16 @@ const store = new Vuex.Store({
   actions:{
     async loadClothStorage(context){
         let state=context.state;
-        state.clothesStorageHandle=new ClothesStorageHandle();
         state.clothesObjectList=await this.state.clothesStorageHandle.getClothesList();
-    }
+        
+    },
+    async flashClothStorage(context){
+        console.log("reflashStart!");
+        let state=context.state;
+        let dispatch=context.dispatch;
+        dispatch('loadClothStorage');
+        console.log("reflash!");
+    },
   }
 })
 

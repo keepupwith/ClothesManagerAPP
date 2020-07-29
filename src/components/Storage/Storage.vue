@@ -3,7 +3,7 @@
         <div v-for="clothObject in this.clothObjectList" :key="clothObject.clothID">
             <SingleCloth :clothObject="clothObject"/>
         </div>
-        {{this.clothObjectList.length}}
+      
     </div>
 </template>
 
@@ -31,9 +31,10 @@ export default {
         }
     },
     watch:{
-        clothObjectList(){
+        clothObjectList(newVal){
             
         }
+      
     }
 }
 </script>
