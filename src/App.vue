@@ -138,7 +138,7 @@ export default {
         return {
             active: 0,
             plusMenuShow: true,
-            addClothPopupShow: true,
+            addClothPopupShow: false,
             newClothProps: {
                 clothClass: null,
                 clothSize: null,
@@ -150,13 +150,11 @@ export default {
                 imageBase64: null,
             },
             submitButtonLoading: false,
-            ClothesStorageHandle: null,
+            
         };
     },
     created() {
-        if (this.ClothesStorageHandle === null) {
-            this.ClothesStorageHandle = new ClothesStorageHandle();
-        }
+        
     },
     methods: {
         changePlusmenuStatus(event) {
@@ -201,7 +199,7 @@ export default {
                 this.newClothProps.imageBase64
             );
             let timer=setTimeout(() => {
-                Toast.fail("读写数据库超时\n请报告给开发者");
+                Toast.fail("读写数据超时");
                 this.submitButtonLoading = false;
                 this.addClothPopupShow = false;
                 this.newClothProps = {
@@ -215,7 +213,7 @@ export default {
                     imageBase64: null,
                 };
             }, 8000);
-            await this.ClothesStorageHandle.addCloth(newClothObject);
+            await this.clothesStorageHandle.addCloth(newClothObject);
             clearTimeout(timer);
             Toast.success("添加成功");
             this.submitButtonLoading = false;
@@ -247,6 +245,9 @@ export default {
                     return "error";
             }
         },
+        clothesStorageHandle(){
+            return this.$store.state.clothesStorageHandle;
+        }
     },
     watch: {
         active(newVal, oldVal) {

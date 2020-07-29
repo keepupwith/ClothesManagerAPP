@@ -1,0 +1,12 @@
+#single-cloth {
+    display: flex;
+    margin: 1rem;
+    border-radius: 5px;
+    box-shadow:0 0 10px 2px rgb(194, 192, 192);
+    #cloth-image {
+        display: block;
+        max-width: 40vw;
+        margin: 0.5rem;
+        border-radius: 5px;
+    }
+}

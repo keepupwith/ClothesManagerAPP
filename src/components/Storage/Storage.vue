@@ -1,6 +1,6 @@
 <template>
     <div id="storage">
-        <div v-for="clothObject in this.clothObjectList" :key="clothObject.clothProps.clothID">
+        <div v-for="clothObject in this.clothObjectList" :key="clothObject.clothID">
             <SingleCloth :clothObject="clothObject"/>
         </div>
         {{this.clothObjectList.length}}
@@ -16,13 +16,24 @@ export default {
     components:{SingleCloth},
     data(){
         return {
-            clothObjectList:[]
+        
         }
     },
     created(){
         this.$store.dispatch('loadClothStorage').then(()=>{
             this.clothesObjectList=this.$store.state.clothesObjectList;
-        })
+        });
+        
+    },
+    computed:{
+        clothObjectList(){
+            return this.$store.state.clothesObjectList;
+        }
+    },
+    watch:{
+        clothObjectList(){
+            
+        }
     }
 }
 </script>

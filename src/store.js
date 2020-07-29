@@ -6,7 +6,7 @@ Vue.use(Vuex);
 import {Cloth,ClothesStorageHandle} from "./Utils/clothesStorage"
 const store = new Vuex.Store({
   state: {
-      clothesStorageHandle:null,
+      clothesStorageHandle:new ClothesStorageHandle(),
       clothesObjectList:[]
   },
   mutations: {

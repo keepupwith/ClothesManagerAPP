@@ -45,7 +45,7 @@ class ClothesStorageHandle {
         let clothListAll=[]
         for(let cloth in this.clothData.data)
             clothListAll.push(this.clothData.data[cloth])
-       
+        
         return clothListAll;
     }
 
@@ -56,7 +56,7 @@ class ClothesStorageHandle {
             let base64 =await this.fileoperator.fileRead(clothID+".base64");
             return base64;
         }catch(e){
-            console.log("can read "+clothID+".base64",e)
+            console.log("can't read "+clothID+".base64",e)
         }
     }
     
