@@ -18,7 +18,7 @@ Vue.use(Popup);
 
 export default {
     name:'PlusMenu',
-    props:['changeAddClothPopupShow'],
+    props:['changeAddClothPopupShow','changeAddClothBase64'],
     data(){
         return {
             
@@ -33,19 +33,17 @@ export default {
     ,
     methods:{
         submenuClicked(id){
-
             switch(id){
                 case(0):
                     this.takePhoto();
                     // this.$store.state.clothesStorageHandle.
-                
-
             }
             this.hidePlusMenu()
         },
         async takePhoto(){
             let base64=await takePhoto();
-            this.changeAddClothPopupShow(base64);
+            this.changeAddClothPopupShow();
+            this.changeAddClothBase64(base64);
 
         },
         hidePlusMenu(e){

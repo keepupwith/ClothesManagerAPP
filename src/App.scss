@@ -1,6 +1,40 @@
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
     transition: opacity .3s
 }
-.fade-enter, .fade-leave-active {
+
+.fade-enter,
+.fade-leave-active {
     opacity: 0
+}
+
+#cloth-props-popup-window {
+    margin: 1rem 1rem 0 1rem;
+    span[id="title"]{
+        display: flex;
+        justify-content: center;
+        font-size: large;
+    
+    }
+    .cloth-props {
+        margin-bottom: 1rem;
+
+        span {
+            display: block;
+            margin: 3px;
+
+            &[class="props-title"] {
+                margin-bottom: 0.1rem;
+                color: rgb(36, 134, 173);
+                &::before{
+                    content: "";
+                    display: block;
+                    border: 0.1px dashed gray;
+                    margin: 2px;
+                  
+                }
+            }
+        }
+
+    }
 }
