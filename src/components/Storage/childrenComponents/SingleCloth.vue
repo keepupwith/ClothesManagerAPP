@@ -1,6 +1,9 @@
 <template>
-    <div id='single-cloth'  >
+    <div id='single-cloth' :style="{backgroundColor:'rgba('+rgba.r+','+rgba.g+','+rgba.b+','+0.2+')'}"
+    @click="()=>showClothDetail(clothObject)"
+    >
         <img
+        v-show="imageShow"
         id="cloth-image" 
         :style="{boxShadow:'0 0 5px 0.1px '+clothObject.color}"
         :src="'data:text/html;base64,'+this.imageBase64" alt="IMG"/>
@@ -41,21 +44,27 @@
 <script>
 import {Cloth,ClothesStorageHandle} from "../../../Utils/clothesStorage"
 import "./SingleCloth.scss"
+import {color16toRGB} from "../../../Utils/tools"
 export default {
     name:'SingleCloth',
-    props:['clothObject'],
+    props:['clothObject',"showClothDetail"],
     data(){
         return {
-            imageBase64:null
+            imageBase64:null,
+            imageShow:false
         }
     },
     created(){
          this.$store.state.clothesStorageHandle.getClothBase64(this.clothObject.clothID).then((base64)=>{
              this.imageBase64=base64;
+             this.imageShow=true;
          });
     },
     computed:{
-        
+        rgba(){
+            let color=color16toRGB(this.clothObject.color);
+            return color;
+        }
     }
 }
 </script>

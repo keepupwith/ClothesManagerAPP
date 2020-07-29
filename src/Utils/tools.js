@@ -13,8 +13,20 @@ function dateFormat(fmt, date) {
         ret = new RegExp("(" + k + ")").exec(fmt);
         if (ret) {
             fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
-        };
-    };
+        }
+    }
     return fmt;
 }
-export {dateFormat};
+
+function color16toRGB(hex){
+    function hexToRgb(hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);   
+        return result ? {       
+            r: parseInt(result[1], 16),              
+            g: parseInt(result[2], 16),       
+            b: parseInt(result[3], 16)   
+        } : null;
+    }
+    return hexToRgb(hex.slice(1));
+}
+export {dateFormat,color16toRGB};

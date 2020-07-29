@@ -36,7 +36,6 @@ export default {
             switch(id){
                 case(0):
                     this.takePhoto();
-                    // this.$store.state.clothesStorageHandle.
             }
             this.hidePlusMenu()
         },
