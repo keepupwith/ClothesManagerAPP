@@ -1,5 +1,5 @@
 #plus-menu{
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245,0.2);
     position: absolute;
     right:3vw;
     margin-top: 7.5vh;
@@ -8,6 +8,7 @@
     flex-direction: column;
     box-shadow: 0 0 10px 0.1px rgb(184, 184, 184);
     border-radius: 8px;
+    backdrop-filter: blur(35px);
     .submenu{
         height: 5vh;
         display: flex;

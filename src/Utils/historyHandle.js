@@ -1,7 +1,7 @@
 import {fileOperator} from "./fileOperator";
 
-class historyHandle{
-    constructor(params) {
+class HistoryHandle{
+    constructor() {
         this.history=-1;
         this.historyFileName="history.json";
         this.fileoperator=new fileOperator();
@@ -16,7 +16,6 @@ class historyHandle{
         }catch(e){
             history={
                 data:{
-
                 }
             };
             console.log("create cloth history.json",e);
@@ -30,9 +29,9 @@ class historyHandle{
         return this.history;
     }
     
-    async addHistory(up,down,shoes,other){
+    async addHistory(historyObject){
         await this._loadHistory()
-        this.history.data[new Date().getTime()]={up:up,down:down,shoes:shoes,other:other};
+        this.history.data[historyObject.unixTime]=historyObject;
         await this.fileoperator.fileWrite(this.historyFileName,JSON.stringify(this.history));
     }
 
@@ -43,4 +42,13 @@ class historyHandle{
     }
 }
 
-export default historyHandle;
+class History{
+    constructor(unixTime,clothIDList,condition){
+        this.unixTime=unixTime;
+        this.clothIDList=clothIDList;
+        this.condition=condition;
+        this.props={unixTime,clothIDList,condition};
+    }
+}
+
+export {History,HistoryHandle};

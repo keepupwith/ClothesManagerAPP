@@ -234,7 +234,7 @@ export default {
                 suitSituation: [],
                 imageBase64: null,
             };
-            console.log("start");
+    
             this.$store.dispatch('flashClothStorage');
         },
     },

@@ -213,7 +213,9 @@ export default {
         }
     },
     watch: {
-        clothObjectList(newVal) {},
+        clothObjectList(newVal) {
+            console.log('test',newVal);
+        },
     },
 };
 </script>
