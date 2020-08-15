@@ -1,0 +1,12 @@
+.cloth-list{
+    background-color: white;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translate(0,-50%);
+    width: fit-content;
+    height: 80vh;
+    padding: 2vh 1vw 2vh 1vw;
+    border-radius: 1rem;
+    overflow: scroll;
+}

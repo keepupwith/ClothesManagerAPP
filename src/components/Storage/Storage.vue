@@ -106,7 +106,7 @@
 
 <script>
 import "./css/Storage.scss";
-import SingleCloth from "./childrenComponents/SingleCloth";
+import SingleCloth from "./SingleCloth/SingleCloth";
 import { Cloth, ClothesStorageHandle } from "../../Utils/clothesStorage";
 import { Toast } from "vant";
 import Vue from "vue";

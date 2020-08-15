@@ -1,0 +1,82 @@
+<!--
+ * @Author: 代强
+ * @Date: 2020-08-15 23:11:17
+ * @LastEditTime: 2020-08-16 00:12:08
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/components/MainComponent/Weather/Weather.vue
+-->
+<template>
+  <div id="weather">
+    <div id="today" @click="showWeather">
+      <div id="city">{{ this.city }}</div>
+
+      <div id="day">
+        {{ today.date.slice(0, -3) }}
+      </div>
+      <div id="week">
+        {{ today.date.slice(-3) }}
+      </div>
+
+      <div id="type">{{ today.type }}</div>
+      <div id="high">{{ today.high }}</div>
+      <div id="low">{{ today.low }}</div>
+      <div id="fengxiang">{{ today.fengxiang }}</div>
+      <div id="fengli">{{ today.fengli.slice(9, -3) }}</div>
+    </div>
+  </div>
+</template>
+
+<script>
+// import "./Weather.scss";
+import getWeatherObject from "../../../Utils/weatherAPI";
+import { Dialog } from "vant";
+export default {
+  name: "Weather",
+  data() {
+    return {
+      city: null,
+      weather: null,
+      today: null,
+      nextDay: null,
+      nextNextDay: null,
+    };
+  },
+  beforeCreate() {},
+  created() {
+    this.getWeather();
+  },
+  methods: {
+    async getUserCity() {
+      this.city = "北京";
+      return "北京";
+    },
+    async getWeather() {
+      let weatherObject = await getWeatherObject(await this.getUserCity());
+      this.today = weatherObject.data.forecast[0];
+      this.nextDay = weatherObject.data.forecast[1];
+      this.nextNextDay = weatherObject.data.forecast[2];
+    },
+    showWeather() {
+        let weatherMessage="";
+        [this.today,this.nextDay,this.nextNextDay].map((day,index)=>{
+            if(index===0)
+                weatherMessage+="今天:\n"
+            else if(index===1)
+                weatherMessage+="明天:\n"
+            else
+                weatherMessage+="后天:\n"
+            weatherMessage+=day.date+' '+day.type+' '+day.low.slice(3)+'~'+day.high.slice(3)+' '+day.fengxiang+' '+day.fengli.slice(9, -3)+"\n\n"
+        })
+      Dialog.alert({
+        title: this.city+"天气",
+        message: weatherMessage,
+      })
+    },
+  },
+};
+</script>
+
+<style lang="sass" scoped>
+@import './Weather.scss'
+</style>
