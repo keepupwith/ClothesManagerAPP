@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-08-13 22:24:04
+ * @LastEditTime: 2020-08-17 00:02:14
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/Utils/fileOperator.js
+ */
 import {Plugins, FilesystemDirectory, FilesystemEncoding } from '@capacitor/core';
 const {Filesystem} = Plugins;
 
@@ -38,9 +46,9 @@ class fileOperator{
         });
       }
       
-      async fileDelete() {
+      async fileDelete(filename) {
         await Filesystem.deleteFile({
-          path: 'secrets/text.txt',
+          path:  "data/"+filename,
           directory: FilesystemDirectory.External
         });
       }

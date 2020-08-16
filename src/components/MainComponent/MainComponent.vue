@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-16 22:46:57
+ * @LastEditTime: 2020-08-16 23:54:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/MainComponent.vue
@@ -23,7 +23,7 @@
     </div>
     <div
       id="user-chose-button"
-      :style="{ boxShadow:'0px 0px 10px 1px '+ btnShadowColor }"
+      :style="{ boxShadow:'0px 0px 20px 3px '+ btnShadowColor }"
       @click="onUserChoseButtonClicked"
     >
       <span>选定今日搭配</span>
@@ -65,7 +65,6 @@ export default {
     },
     async onUserChoseButtonClicked(){
         let historyHandle=this.$store.state.historyHandle;
-        
         await historyHandle.addHistory(new History(new Date().getTime(),
         [this.userChosedCloth['上装'].clothID,this.userChosedCloth['下装'].clothID,this.userChosedCloth['鞋子'].clothID]
         ,this.$refs.weather.weatherObject.data.forecast[0]))

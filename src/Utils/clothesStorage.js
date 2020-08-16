@@ -1,3 +1,11 @@
+/*
+ * @Author: 代强
+ * @Date: 2020-08-13 22:24:04
+ * @LastEditTime: 2020-08-17 00:02:47
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/Utils/clothesStorage.js
+ */
 import {fileOperator} from "./fileOperator";
 
 class ClothesStorageHandle {
@@ -58,6 +66,16 @@ class ClothesStorageHandle {
         }catch(e){
             console.log("can't read "+clothID+".base64",e)
         }
+    }
+
+    async deleteCloth(clothID){
+        if(await this.fileoperator.readdir(this.dataPath)==='error')
+            await this.firstRun()
+        let clothData=JSON.parse(await this.fileoperator.fileRead(this.clothesDataFileName));
+        delete clothData.data[clothID]
+        await this.fileoperator.fileWrite(this.clothesDataFileName,JSON.stringify(clothData));
+        let fileoperator=new fileOperator();
+        await fileoperator.fileDelete(clothID+".base64");
     }
     
 

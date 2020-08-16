@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-16 23:04:32
+ * @LastEditTime: 2020-08-16 23:57:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/Utils/historyHandle.js
@@ -38,8 +38,9 @@ class HistoryHandle{
     }
     
     async addHistory(historyObject){
-        await this._loadHistory()
-        this.history.data[historyObject.unixTime]=historyObject;
+        console.log('test');
+        await this._loadHistory();
+        this.history[historyObject.unixTime]=historyObject;
         await this.fileoperator.fileWrite(this.historyFileName,JSON.stringify(this.history));
     }
 

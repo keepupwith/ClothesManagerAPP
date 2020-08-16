@@ -1,0 +1,50 @@
+#single-history{
+    box-shadow: 0 0 10px 1px gray;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    #information{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        #time{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+               
+            }
+        }
+        #weather{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            div{
+                margin: 0px 10px;
+            }
+        }
+    }
+    #image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .cloth-image{
+            margin: 5px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            img{
+                width: 30vw;
+            }
+        }
+    }
+}
