@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-08-13 22:24:04
+ * @LastEditTime: 2020-08-16 22:29:49
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/store.js
+ */
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -9,7 +17,7 @@ const store = new Vuex.Store({
   state: {
       clothesStorageHandle:new ClothesStorageHandle(),
       clothesObjectList:[],
-      HistoryHandle:new HistoryHandle(),
+      historyHandle:new HistoryHandle(),
       history:null
   },
   mutations: {

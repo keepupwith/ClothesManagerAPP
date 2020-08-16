@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-16 13:55:53
+ * @LastEditTime: 2020-08-16 23:04:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/Utils/historyHandle.js
@@ -20,7 +20,7 @@ class HistoryHandle{
             return
         let history;
         try{
-            history=JSON.parse(await this.fileoperator.fileRead(this.historyFileName));
+            history=JSON.parse(await this.fileoperator.fileRead(this.historyFileName)).data;
         }catch(e){
             history={
                 data:{
@@ -55,7 +55,6 @@ class History{
         this.unixTime=unixTime;
         this.clothIDList=clothIDList;
         this.weather=weather;
-        this.props={unixTime,clothIDList,weather};
     }
 }
 // class Condition{

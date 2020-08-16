@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       city: null,
-      weather: null,
+      weatherObject: null,
       today: null,
       nextDay: null,
       nextNextDay: null,
@@ -53,6 +53,7 @@ export default {
     },
     async getWeather() {
       let weatherObject = await getWeatherObject(await this.getUserCity());
+      this.weatherObject=weatherObject;
       this.today = weatherObject.data.forecast[0];
       this.nextDay = weatherObject.data.forecast[1];
       this.nextNextDay = weatherObject.data.forecast[2];

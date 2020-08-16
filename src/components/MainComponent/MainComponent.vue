@@ -1,14 +1,14 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-16 13:58:11
+ * @LastEditTime: 2020-08-16 22:46:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/MainComponent.vue
 -->
 <template>
   <div id="main-component">
-    <Weather />
+    <Weather ref="weather" />
     <div class="cloth-choser">
       <div class="cloth-class-span">上装</div>
       <ClothChoser :clothClass="'上装'" :onUserChoseCloth="onUserChoseCloth" />
@@ -40,7 +40,6 @@ export default {
   name: "MainComponent",
   data() {
     return {
-      weatherObject: null,
       btnShadowColor: "green",
       userChosedCloth:{}
     };
@@ -65,11 +64,11 @@ export default {
         this.userChosedCloth[clothClass]=clothObject;
     },
     async onUserChoseButtonClicked(){
-        let historyHandle=this.$store.state.HistoryHandle;
+        let historyHandle=this.$store.state.historyHandle;
         
-        await historyHandle.addHistory(new History(new Date().getTime,
-        [this.userChosedCloth['上装'],this.userChosedCloth['下装'],this.userChosedCloth['鞋子']]
-        ,this.weatherObject))
+        await historyHandle.addHistory(new History(new Date().getTime(),
+        [this.userChosedCloth['上装'].clothID,this.userChosedCloth['下装'].clothID,this.userChosedCloth['鞋子'].clothID]
+        ,this.$refs.weather.weatherObject.data.forecast[0]))
     }
   },
 };
