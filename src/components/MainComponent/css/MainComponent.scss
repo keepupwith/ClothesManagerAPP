@@ -1,0 +1,38 @@
+#main-component{
+    .cloth-choser{
+        display: flex;
+        .cloth-class-span{
+            writing-mode: vertical-lr;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            right:-5px
+        }
+    }
+    #user-chose-button{
+        margin: auto;
+        width: 90vw;
+        height: 7vh;
+        background-color: rgb(84, 191, 105);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-radius: 10px;
+        transition: box-shadow 1s;
+        margin-top: 1rem;
+        box-sizing: border-box;
+        // box-shadow: 3px 5px 20px 1px gray;
+        span{
+            text-shadow: 0 0  50px black;
+        }
+        &:active{
+            span{
+                font-weight: 900;
+            }
+     
+            box-shadow: 0px 0px 20px 10px rgb(223, 222, 222);
+        }
+    }
+}

@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-08-13 22:24:04
+ * @LastEditTime: 2020-08-16 13:55:53
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/Utils/historyHandle.js
+ */
 import {fileOperator} from "./fileOperator";
 
 class HistoryHandle{
@@ -43,12 +51,22 @@ class HistoryHandle{
 }
 
 class History{
-    constructor(unixTime,clothIDList,condition){
+    constructor(unixTime,clothIDList,weather){
         this.unixTime=unixTime;
         this.clothIDList=clothIDList;
-        this.condition=condition;
-        this.props={unixTime,clothIDList,condition};
+        this.weather=weather;
+        this.props={unixTime,clothIDList,weather};
     }
 }
+// class Condition{
+//     constructor(weatherType,high,low,fengxiang,fengli,situation) {
+//         this.weatherType=weatherType;
+//         this.high=high;
+//         this.low=low;
+//         this.fengxiang=fengxiang;
+//         this.fengli=fengli;
+//         this.situation=situation;
+//     }
+// }
 
 export {History,HistoryHandle};

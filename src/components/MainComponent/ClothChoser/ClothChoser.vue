@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-08-16 00:31:34
+ * @LastEditTime: 2020-08-16 13:29:05
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/components/MainComponent/ClothChoser/ClothChoser.vue
+-->
 <template>
   <div>
     <SingleCloth
@@ -28,7 +36,7 @@ import { Overlay } from "vant";
 Vue.use(Overlay);
 export default {
   name: "ClothChoser",
-  props:['clothClass'],
+  props:['clothClass',"onUserChoseCloth"],
   components: { SingleCloth },
   data() {
     return {
@@ -36,10 +44,14 @@ export default {
       modalShow: false,
     };
   },
+  mounted(){
+      this.onUserChoseCloth(this.clothClass,this.clothObjectList[0])
+  },
   methods: {
     onChoserClicked(clothIndex) {
         if(this.modalShow){
             this.chosedIndex=clothIndex;
+            this.onUserChoseCloth(this.clothClass,this.clothObjectList[clothIndex])
         }else{
             this.modalShow = true;
         }

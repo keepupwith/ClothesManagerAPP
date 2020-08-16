@@ -1,3 +1,11 @@
+/*
+ * @Author: 代强
+ * @Date: 2020-08-13 22:24:04
+ * @LastEditTime: 2020-08-16 13:53:08
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/Utils/tools.js
+ */
 function dateFormat(fmt, date) {
     let ret;
     const opt = {
@@ -29,4 +37,7 @@ function color16toRGB(hex){
     }
     return hexToRgb(hex.slice(1));
 }
-export {dateFormat,color16toRGB};
+function getRandomInt(start,end){
+    return Math.floor(Math.random()*(end-start)+start)
+}
+export {dateFormat,color16toRGB,getRandomInt};
