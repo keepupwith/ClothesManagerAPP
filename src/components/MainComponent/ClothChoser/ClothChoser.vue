@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-16 00:31:34
- * @LastEditTime: 2020-08-16 20:44:19
+ * @LastEditTime: 2020-08-23 17:39:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/ClothChoser/ClothChoser.vue

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-16 23:57:01
+ * @LastEditTime: 2020-08-23 19:53:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/Utils/historyHandle.js
@@ -10,24 +10,26 @@ import {fileOperator} from "./fileOperator";
 
 class HistoryHandle{
     constructor() {
-        this.history=-1;
+        this.history=null;
         this.historyFileName="history.json";
         this.fileoperator=new fileOperator();
     }
 
     async _loadHistory(){
-        if(this.history!==-1)
+        if(this.history)
             return
         let history;
         try{
-            history=JSON.parse(await this.fileoperator.fileRead(this.historyFileName)).data;
+            
+            history=JSON.parse(await this.fileoperator.fileRead(this.historyFileName));
+           
         }catch(e){
             history={
                 data:{
                 }
             };
             console.log("create cloth history.json",e);
-            this.fileoperator.fileWrite(this.historyFileName,JSON.stringify(history));
+            await this.fileoperator.fileWrite(this.historyFileName,JSON.stringify(history));
         }
         this.history=history;
     }
@@ -38,8 +40,9 @@ class HistoryHandle{
     }
     
     async addHistory(historyObject){
-        console.log('test');
+   
         await this._loadHistory();
+        console.log('test',this.history);
         this.history[historyObject.unixTime]=historyObject;
         await this.fileoperator.fileWrite(this.historyFileName,JSON.stringify(this.history));
     }

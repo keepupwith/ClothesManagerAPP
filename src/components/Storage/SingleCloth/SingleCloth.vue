@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-16 01:03:05
+ * @LastEditTime: 2020-08-23 17:42:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/Storage/SingleCloth/SingleCloth.vue
@@ -13,7 +13,7 @@
       backgroundColor:
         'rgba(' + rgba.r + ',' + rgba.g + ',' + rgba.b + ',' + 0.2 + ')',
     }"
-    @click="() => showClothDetail(clothObject)"
+    @click="() => showClothDetail?showClothDetail(clothObject):()=>{}"
   >
     <img
       v-show="imageShow"

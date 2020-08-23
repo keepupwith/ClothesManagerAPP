@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-15 23:11:17
- * @LastEditTime: 2020-08-16 13:53:26
+ * @LastEditTime: 2020-08-23 17:36:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/Weather/Weather.vue
@@ -12,17 +12,17 @@
       <div id="city">{{ this.city }}</div>
 
       <div id="day">
-        {{ today.date.slice(0, -3) }}
+        {{ today?today.date.slice(0, -3):"" }}
       </div>
       <div id="week">
-        {{ today.date.slice(-3) }}
+        {{today? today.date.slice(-3):""}}
       </div>
 
-      <div id="type">{{ today.type }}</div>
-      <div id="high">{{ today.high }}</div>
-      <div id="low">{{ today.low }}</div>
-      <div id="fengxiang">{{ today.fengxiang }}</div>
-      <div id="fengli">{{ today.fengli.slice(9, -3) }}</div>
+      <div id="type">{{ today?today.type :""}}</div>
+      <div id="high">{{ today?today.high:"" }}</div>
+      <div id="low">{{ today?today.low:"" }}</div>
+      <div id="fengxiang">{{ today?today.fengxiang:""}}</div>
+      <div id="fengli">{{ today?today.fengli.slice(9, -3):""}}</div>
     </div>
   </div>
 </template>
@@ -48,11 +48,12 @@ export default {
   },
   methods: {
     async getUserCity() {
-      this.city = "北京";
-      return "北京";
+      this.city = "郑州";
+      return "郑州";
     },
     async getWeather() {
       let weatherObject = await getWeatherObject(await this.getUserCity());
+      console.log('tetsttest',weatherObject);
       this.weatherObject=weatherObject;
       this.today = weatherObject.data.forecast[0];
       this.nextDay = weatherObject.data.forecast[1];

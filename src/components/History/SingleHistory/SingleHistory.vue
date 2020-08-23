@@ -1,15 +1,7 @@
 <!--
- * @Author: your name
- * @Date: 2020-08-16 22:06:34
- * @LastEditTime: 2020-08-16 23:40:26
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /ClothesManagerAPP/src/components/History/SingleHistory/SingleHistory.vue
--->
-<!--
  * @Author: 代强
  * @Date: 2020-08-16 22:06:34
- * @LastEditTime: 2020-08-16 22:13:33
+ * @LastEditTime: 2020-08-23 17:45:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/History/SingleHistory/SingleHistory.vue
@@ -19,18 +11,18 @@
     <div id="information">
       <div id="time">
         <div id="date">
-          {{ new Date(historyObject.unixTime).toLocaleDateString() }}
+          {{historyObject?new Date(historyObject.unixTime).toLocaleDateString():"" }}
         </div>
         <div id="clock">
-          {{ new Date(historyObject.unixTime).toLocaleTimeString() }}
+          {{historyObject? new Date(historyObject.unixTime).toLocaleTimeString():"" }}
         </div>
       </div>
       <div id="weather">
-        <div id="type">{{ historyObject.weather.type }}</div>
-        <div id="high">{{ historyObject.weather.high }}</div>
-        <div id="low">{{ historyObject.weather.low }}</div>
-        <div id="fengxiang">{{ historyObject.weather.fengxiang }}</div>
-        <div id="fengli">{{ historyObject.weather.fengli.slice(9, -3) }}</div>
+        <div id="type">{{ historyObject?historyObject.weather.type :""}}</div>
+        <div id="high">{{ historyObject?historyObject.weather.high:"" }}</div>
+        <div id="low">{{ historyObject?historyObject.weather.low:"" }}</div>
+        <div id="fengxiang">{{ historyObject?historyObject.weather.fengxiang:"" }}</div>
+        <div id="fengli">{{ historyObject?historyObject.weather.fengli.slice(9, -3):"" }}</div>
       </div>
     </div>
 

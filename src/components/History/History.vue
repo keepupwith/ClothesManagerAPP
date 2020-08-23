@@ -1,3 +1,11 @@
+<!--
+ * @Author: 代强
+ * @Date: 2020-08-13 22:24:04
+ * @LastEditTime: 2020-08-23 17:14:56
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/components/History/History.vue
+-->
 <template>
   <div id='history'>
       <SingleHistory v-for="historyObject in historyObjectList" 
@@ -32,7 +40,7 @@ export default {
                 return history1.unixTime-history0.unixTime;
             })
             this.historyObjectList=historyObjectList;
-            console.log("test",historyObjectCollection);
+            // console.log("test",historyObjectCollection);
         }
     },
     computed:{
